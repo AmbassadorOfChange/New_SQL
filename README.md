@@ -6,7 +6,6 @@ Looking into the data job in 2023 posted on LinkedIn where the location is "Anyw
 4. What skills are associated to higher salary?
 5. What are the most optimal skills to learn?
 
-Sequel queries? Check them out here: [SQL_PROJECT folder](/first_sql_project/1_top_paying_job.sql)
 # BACKGROUND
 Driven by the quest to know business analyst job market more effectively, this project was born from the desire to pinpoint top-paid jobs and in-demand skills streamlining others work to find optimal jobs. 
 
