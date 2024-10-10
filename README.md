@@ -1,13 +1,32 @@
+
 # INTRODUCTION
-Looking into the data job in 2023 posted on LinkedIn where the location is "Anywhere" and sepecifically "Business Analyst" role. This project explore the following questions.
+Looking into the data job posted in 2023 on LinkedIn where the location is "Anywhere" and sepecifically "Business Analyst" role. 
+
+Data source: datanerd.tech
+
+This project explore the following questions.
+
 1. What are the top-paying business analysis jobs?
 2. What skills are required for this top-paying jobs?
 3. What skills are most in demand skills for businsss analyst?
 4. What skills are associated to higher salary?
 5. What are the most optimal skills to learn?
 
+
 # BACKGROUND
-Driven by the quest to know business analyst job market more effectively, this project was born from the desire to pinpoint top-paid jobs and in-demand skills streamlining others work to find optimal jobs. 
+Driven by the quest to know business analyst job market more effectively, this project is tailored to pinpoint top-paid jobs and in-demand skills streamlining others work to find optimal jobs as a business analyst. 
+
+
+In other to achieve this result, four table were created. job_postings_fact table, company_dim table, skill_dim table, and skills_job_dim table.
+
+The job_postings_fact table contain the folllowing columns; job_id, company_id, job_title_short, job_title, job_location, job_via, job_schedule_type, job_work_from_home, search_location, job_posted_date,
+job_no_degree_mention, job_health_insurance, job_country, salary_rate, salary_year_avg, and salary_hour_avg.
+
+The skill_dim table (skill dimension) contain the following colums; skill_id, skills, and type.
+
+The skills_job_dim table (skills job dimension) contains two columns; job_id and skill_id.
+
+The company_dim table (company dimension) contains the following columns; company_id, name, link, link_google, and thumbnail.
 
 
 # THE TOOLS I USED
@@ -20,8 +39,9 @@ For deep diving into the business analyst job market, I harnessed several tools 
 # THE ANALYSIS
 Each query in this analysis is aimed at investigating specifically business analyst job market.
 Here is how I approached each quesions. 
+
 ## 1. Top paying Business Analyst Jobs.
-Explanation: To identify the highest paying roles, I filttered business analyst position by average yearly salary, and location. Focusing on jobs located "Anywhere". This query highlight the highest paying opportunities in the field.
+Explanation: To identify the highest paying roles, I filttered business analyst position by average yearly salary, and the location, focused on jobs located "Anywhere". This query highlight the highest paying opportunities in the field.
 
 ``` sql
     SELECT  
@@ -61,16 +81,14 @@ All the listed jobs have "Anywhere" as their location, indicating that remote wo
 
 Salaries range from $134,550 to $220,000, reflecting the high value placed on skilled business analysts. The top-paying job, "Lead Business Intelligence Engineer" at Noom, has an average salary of $220,000. 
 
-![salary_by_job_title](https://github.com/user-attachments/assets/9e333a10-2327-404c-ab4a-65d8e6fd78ae) 
+![Top Paying Business Analyst Roles](first_sql_project\assets\salary_by_job_title_v2.png) 
 
-**Bar graph visualizing top 10 business analyst role with average salary range.**
+**Bar graph visualizing top 10 business analyst role with average yearly salary range.**
 
 
 ## 2. Top Paying Job Skills. 
-Explanation:
-I join job_postings_fact with company_dim to get the company names associated with each job.
-I filttered the results for job titles 'Business Analyst'.
-And ordered the results by average yearly salary in descending order.
+Explanation: I joined job_postings_fact with company_dim to get the company names associated with each job.
+I filttered the results for job titles 'Business Analyst' and I ordered the results by average yearly salary in descending order.
 The output was limited to the top 10 jobs.
 
 ``` sql 
@@ -113,16 +131,13 @@ Excel: Despite being a traditional tool, excel remains highly relevant for data 
 
 Visualization (Tableau and BI Tools):These tools are popular for business intelligence and data visualization, indicating a trend towards the need for skills in creating insightful reports and dashboards.
 
-![skills_count](https://github.com/user-attachments/assets/92cfe45e-cc8f-4f1f-930c-e802b062ec86) 
+![Top Paying Business Analyst Roles](first_sql_project\assets\skills_count.png) 
 
 **This column bar visualization shows the top paying business analyst skills**
 
-## 3. In Demand Skills For Business Analyst.
-Explanation:
-I join job_postings_fact with skills_job_dim to get job postings associated with specific skills and joined skills_job_dim with skills_dim to get the skill names.
-I filttered the results for job titles 'Business Analyst'.
-Also, I group by skills and count the number of times each skill is mentioned.
-And lastly I order the results by the count of skills in descending order and limit the output to the top 10 skills.
+## 3. In-Demand Skills For Business Analyst.
+Explanation: I joined job_postings_fact with skills_job_dim to get job postings associated with specific skills and joined skills_job_dim with skills_dim to get the skill names.
+I filttered the results for job titles 'Business Analyst'. Also, I group by skills and count the number of times each skill is mentioned. Lastly, I order the results by the count of skills in descending order and limited the output to the top 10 skills.
 
 ``` sql
     SELECT 
@@ -143,7 +158,6 @@ LIMIT 10
 SQL and Excel: These skills are the most in-demand, with sql having 17,372 mentions and excel close behind at 17,134 mentions. This highlights the critical role of data manipulation, querying, and spreadsheet proficiency in business analysis.
 
 Python: With 8,097 mentions, Python is also highly in-demand, indicating its importance for more advanced data analysis, automation, and machine learning tasks.
-Data Visualization Tools:
 
 Tableau and Power BI: Tableau (9,324 mentions) and Power BI (9,251 mentions) are the leading tools for data visualization and business intelligence. 
 
@@ -151,7 +165,7 @@ PowerPoint and Word: These tools, with 4,591 and 3,675 mentions respectively, ar
 
 R and SAS: These tools, with 4,035 and 3,604 mentions respectively, are important for statistical analysis and data modeling.
 
-![demand_count_by_skill](https://github.com/user-attachments/assets/12534556-a52e-482f-9de2-dea8c013fae7)
+![In-demand Business Analyst Skills](first_sql_project\assets\demand_count_by_skill.png)
 
 **Bar graph visualizig the top 10 in-demand skills for business analyst jobs.**
 
@@ -160,8 +174,7 @@ R and SAS: These tools, with 4,035 and 3,604 mentions respectively, are importan
 ## 4. Top Skills Based On Salary. 
 Explanation: I joined the job_postings_fact, skills_job_dim, and skills_dim tables to link job postings with their associated skills.
 I filttered the job postings to include only those with the job title 'Business Analyst'.
-I group the results by skill and calculate the average salary for each skill.
-And lastly the results was order by average salary in descending order and limit the output to the top 10 skills.
+I group the results by skill and calculate the average salary for each skill. Lastly, the results was order by average salary in descending order and limited the output to the top 10 skills.
 
 ``` sql 
     SELECT 
@@ -178,7 +191,7 @@ LIMIT 10
 ```
 ### Insight from Analysis of Top 10 Paying Skills for Business Analysts.
 
-**Variety of Skills:** The top-paying skills span across various domains, including DevOps (e.g., Chef), data manipulation (e.g., NumPy), programming languages (e.g., Ruby, Julia, C), big data technologies (e.g., Hadoop), and machine learning frameworks (e.g., PyTorch).
+**Variety of Skills:** *The top-paying skills span across various domains*, including DevOps (e.g., Chef), data manipulation (e.g., NumPy), programming languages (e.g., Ruby, Julia, C), big data technologies (e.g., Hadoop), and machine learning frameworks (e.g., PyTorch).
 
 **Emerging Technologies:** Some of the high-paying skills like Julia, Airflow, and Phoenix are relatively newer and specialized, indicating a trend towards niche expertise.
 
@@ -186,13 +199,11 @@ LIMIT 10
 
 **Interdisciplinary Demand:** Skills like NumPy and PyTorch highlight the demand for professionals who can handle both statistical analysis and machine learning, reflecting the interdisciplinary nature of modern data science roles.
 
-![Screenshot (39)](https://github.com/user-attachments/assets/7b4b6826-88ea-4d6a-92b6-6bd10943a300)
-
-**Column bar**
+![In-demand Business Analyst Skills]()
 
 
-## 5. Most Optimal Skill To Learn
-Explanation: This query was written using CTE (Common Table Expression) drawing a corollary from in-demand skills and top paying skills based on salary to give insight on the optimal skills to learn in business analysis based on demand and salary. 
+## 5. The Most Optimal Skills To Learn
+Explanation: This query was written using CTE (Common Table Expression) to draw a corollary between in-demand skills and top paying skills based on salary to give insight on the optimal skills to learn in business analysis based on demand and salary. 
 
 ``` sql
     WITH skills_demand AS (
@@ -281,7 +292,7 @@ Skills like Python, with 143 occurrences, indicate a very high demand. The signi
 
 
 
-| skill_id |  skills   | number_of_skills | average_salary |
+| skill_id |  skills   | demand_count | average_salary |
 |----------|-----------|------------------|----------------|
 |    0     |    sql    |        312       |     95292      |
 |   181    |   excel   |        226       |     87212      |
@@ -300,9 +311,9 @@ Skills like Python, with 143 occurrences, indicate a very high demand. The signi
 # WHAT I LEARNED
 Embarking on this journey in the first instance is one of the best decision I have made in improving my skills as a data analyst. 
 
-Have been able to adequately improve my query skills which is the top leading skill as a data analyst.
+I have been able to adequately improve my query skills which is the top leading skill as a data analyst.
 
-Also, this analyst has also taught me the importance of having multiple skills and being versatile which can make one extremely valuable in the job market and irresitable for clients. 
+Also, this analysis has also taught me the importance of having multiple skills and being versatile which can make one extremely valuable in the job market and irresitable for clients. 
 
 More importantly, this project taught me patience, resilience, and perseverance.
 
@@ -317,4 +328,3 @@ More importantly, this project taught me patience, resilience, and perseverance.
 **Programming Knowledge:** Python and R are crucial for advanced data analysis and statistical modeling, indicating a trend towards more technical and analytical roles.
 
 **Office Suite Proficiency:** Familiarity with general office tools like PowerPoint and Word remains important for creating reports and presentations.
-
