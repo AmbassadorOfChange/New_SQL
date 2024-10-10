@@ -187,7 +187,9 @@ LIMIT 10
 
 **Interdisciplinary Demand:** Skills like NumPy and PyTorch highlight the demand for professionals who can handle both statistical analysis and machine learning, reflecting the interdisciplinary nature of modern data science roles.
 
-![In-demand Business Analyst Skills]()
+![Screenshot (39)](https://github.com/user-attachments/assets/7b4b6826-88ea-4d6a-92b6-6bd10943a300)
+
+**Column bar**
 
 
 ## 5. Most Optimal Skill To Learn
