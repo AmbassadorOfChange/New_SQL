@@ -80,7 +80,7 @@ All the listed jobs have "Anywhere" as their location, indicating that remote wo
 
 Salaries range from $134,550 to $220,000, reflecting the high value placed on skilled business analysts. The top-paying job, "Lead Business Intelligence Engineer" at Noom, has an average salary of $220,000. 
 
-![Top Paying Business Analyst Roles](first_sql_project\assets\salary_by_job_title_v2.png) 
+![salary_by_job_title](https://github.com/user-attachments/assets/0fdb8e8f-139b-4cb2-b938-57c14db3d36e)
 
 **Bar graph visualizing top 10 business analyst role with average yearly salary range.**
 
@@ -130,7 +130,7 @@ Excel: Despite being a traditional tool, excel remains highly relevant for data 
 
 Visualization (Tableau and BI Tools):These tools are popular for business intelligence and data visualization, indicating a trend towards the need for skills in creating insightful reports and dashboards.
 
-![Top Paying Business Analyst Roles](first_sql_project\assets\skills_count.png) 
+![skills_count](https://github.com/user-attachments/assets/afe88e6e-b0ed-430c-a8f5-9d14c8b75b0c) 
 
 **This column bar visualization shows the top paying business analyst skills**
 
@@ -164,7 +164,7 @@ PowerPoint and Word: These tools, with 4,591 and 3,675 mentions respectively, ar
 
 R and SAS: These tools, with 4,035 and 3,604 mentions respectively, are important for statistical analysis and data modeling.
 
-![In-demand Business Analyst Skills](first_sql_project\assets\demand_count_by_skill.png)
+![demand_count_by_skill](https://github.com/user-attachments/assets/9e6319d6-7fc2-4bae-bcd8-a01345098a29)
 
 **Bar graph visualizig the top 10 in-demand skills for business analyst jobs.**
 
@@ -198,8 +198,9 @@ LIMIT 10
 
 **Interdisciplinary Demand:** Skills like NumPy and PyTorch highlight the demand for professionals who can handle both statistical analysis and machine learning, reflecting the interdisciplinary nature of modern data science roles.
 
-![In-demand Business Analyst Skills]()
+![Screenshot (39)](https://github.com/user-attachments/assets/13597dfa-4e3e-41e4-b179-d1430a997c5a)
 
+**This column bar visualization shows the top paying business analyst skills  based on salary**
 
 ## 5. The Most Optimal Skills To Learn
 Explanation: This query was written using CTE (Common Table Expression) to draw a corollary between in-demand skills and top paying skills based on salary to give insight on the optimal skills to learn in business analysis based on demand and salary. 
