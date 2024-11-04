@@ -17,10 +17,9 @@ This project explore the following questions.
 Driven by the quest to know business analyst job market more effectively, this project is tailored to pinpoint top-paid jobs and in-demand skills streamlining others work to find optimal jobs as a business analyst. 
 
 
-In other to achieve this result, four table were created. job_postings_fact table, company_dim table, skill_dim table, and skills_job_dim table.
+In other to achieve this result, four tables were created. job_postings_fact table, company_dim table, skill_dim table, and skills_job_dim table.
 
-The job_postings_fact table contain the folllowing columns; job_id, company_id, job_title_short, job_title, job_location, job_via, job_schedule_type, job_work_from_home, search_location, job_posted_date,
-job_no_degree_mention, job_health_insurance, job_country, salary_rate, salary_year_avg, and salary_hour_avg.
+The job_postings_fact table contain the folllowing columns; job_id, company_id, job_title_short, job_title, job_location, job_via, job_schedule_type, job_work_from_home, search_location, job_posted_date,  job_no_degree_mention, job_health_insurance, job_country, salary_rate, salary_year_avg, and salary_hour_avg.
 
 The skill_dim table (skill dimension) contain the following colums; skill_id, skills, and type.
 
